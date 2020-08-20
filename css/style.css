@@ -1,0 +1,22 @@
+#categories {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #7b0094;
+    color: aliceblue;
+}
+
+#ingredients {
+    background-color: rgb(15, 156, 238);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: aliceblue;
+}
+#gallery{
+    background-color: rgb(15, 156, 238);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: aliceblue;
+}
