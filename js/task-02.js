@@ -17,19 +17,18 @@ const ingredients = [
  */
 
 const ingredients = [
-    'Картошка',
-    'Грибы',
-    'Чеснок',
-    'Помидоры',
-    'Зелень',
-    'Приправы',
+  'Картошка',
+  'Грибы',
+  'Чеснок',
+  'Помидоры',
+  'Зелень',
+  'Приправы',
 ];
 const addLiElementInUl = ingredients.map((item) => {
-    const liItemRef = document.createElement('li');
-    liItemRef.textContent = item
-    return liItemRef;
+  const liItemRef = document.createElement('li');
+  liItemRef.textContent = item
+  return liItemRef;
 })
 
-const ingredientsRef =  document.querySelector('#ingredients');
+const ingredientsRef = document.querySelector('#ingredients');
 ingredientsRef.append(...addLiElementInUl);
-console.log(ingredientsRef);

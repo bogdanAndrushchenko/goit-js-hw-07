@@ -27,32 +27,37 @@ const divBoxesRef = document.querySelector('#boxes');
 const btnRender = document.querySelector('button[data-action="render"]');
 const btnDestroy = document.querySelector('button[data-action="destroy"]');
 
+const createDivFn = (size) => {
+    const startDivSize = 30
+    const finishDivSize = startDivSize + size * 10;
+    const createDiv = document.createElement('div');
+    createDiv.style.cssText =
+        `width: ${finishDivSize}px; height: ${finishDivSize}px;
+          background-color: rgb(${colorRandom()})`;
+    return createDiv
+}
+
 
 const createBoxes = (amount) => {
     const boxFragment = document.createDocumentFragment();
-    const startDivSize = 30
-    // const colorDiv = Math.floor(Math.random() * 255)
     for (let i = 0; i < amount; i += 1) {
-        const finishDivSize = startDivSize + i * 10;
-        const createDiv = document.createElement('div');
-        createDiv.style.cssText =
-            `width: ${finishDivSize}px; height: ${finishDivSize}px;
-             background-color: rgb(${colorRandom()},${colorRandom()},${colorRandom()})`;
+        let createDiv = createDivFn(i)
         boxFragment.append(createDiv);
     }
-
     divBoxesRef.append(boxFragment);
-    console.log('test create')
 
 }
 
 const colorRandom = () => {
-    return Math.floor(Math.random() * 255)
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    return `${r},${g},${b}`
 }
+console.log(colorRandom());
 
 const destroyBoxes = () => {
     divBoxesRef.textContent = '';
-    console.log('test')
 }
 
 
@@ -63,68 +68,3 @@ const inputForListener = () => {
 
 btnRender.addEventListener('click', inputForListener);
 btnDestroy.addEventListener('click', destroyBoxes);
-
-
-
-
-
-
-
-
-
-
-
-
-
-// inputValueRef.addEventListener('input', event => {
-//     amount = event.value
-// })
-// console.log(btnRender);
-
-
-
-
-
-// createBoxes(9);
-// console.log(divBoxesRef);
-
-// const element = document.querySelector('#boxes'); // assuming ul exists
-// const fragment = document.createDocumentFragment();
-// console.log(fragment);
-// const browsers = ['Firefox', 'Chrome', 'Opera',
-//     'Safari', 'Internet Explorer'
-// ];
-
-// browsers.forEach(function (browser) {
-//     let li = document.createElement('li');
-//     li.textContent = browser;
-//     fragment.appendChild(li);
-// });
-
-// element.appendChild(fragment);
-// console.log(element);
-
-/**
- *   createDiv.style.width = '30px';
-     {
-        createDiv = createDiv++
-let 
-        // createDiv[1].style.width = '30px';
-        divControlsRef.append(createDiv);
-    }
-    // createDiv.style.width = '30px';
-// createDiv.
-    // console.log(createDiv);
-    // return createDiv
- */
-
-/**
- *  const arrDiv = [];
-   arrDiv.length=amount;
-   arrDiv.reduce((acc,div)=>{
-       const createDiv= document.createElement('div');
-       div.style.width = acc+10+'px'
-       divBoxesRef.append(createDiv);
-       return divControlsRef
-   },30)
- */
