@@ -34,7 +34,7 @@
 }
 
 #validation-input {
-  margin-top:  15px;
+  margin-top: 15px;
   border: 3px solid #bdbdbd;
 }
 
@@ -47,9 +47,8 @@
   border-color: #f44336;
   border-radius: 5px;
 }
-/* #controls{
+#boxes {
+  margin-top: 20px;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-} */
-
+  justify-content: space-around;
+}

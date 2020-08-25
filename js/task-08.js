@@ -24,25 +24,69 @@
  */
 
 const divBoxesRef = document.querySelector('#boxes');
-const inputValueRef = document.querySelector('#controls>input').value;
-const fragment = document.createDocumentFragment();
+const btnRender = document.querySelector('button[data-action="render"]');
+const btnDestroy = document.querySelector('button[data-action="destroy"]');
+
 
 const createBoxes = (amount) => {
-    const arr = []
-    let val = 30
-    for (let i = 1; i <= amount; i += 1) {
+    const boxFragment = document.createDocumentFragment();
+    const startDivSize = 30
+    // const colorDiv = Math.floor(Math.random() * 255)
+    for (let i = 0; i < amount; i += 1) {
+        const finishDivSize = startDivSize + i * 10;
         const createDiv = document.createElement('div');
-        createDiv.style.width = createDiv.style.width + (val + 10 + 'px');
-        createDiv.style.height = val + (val + 10 + 'px');
-        console.log(createDiv.style.width);
-        arr.push(createDiv)
-
+        createDiv.style.cssText =
+            `width: ${finishDivSize}px; height: ${finishDivSize}px;
+             background-color: rgb(${colorRandom()},${colorRandom()},${colorRandom()})`;
+        boxFragment.append(createDiv);
     }
 
-    console.dir(arr);
+    divBoxesRef.append(boxFragment);
+    console.log('test create')
+
 }
-createBoxes(5);
-console.log(divBoxesRef);
+
+const colorRandom = () => {
+    return Math.floor(Math.random() * 255)
+}
+
+const destroyBoxes = () => {
+    divBoxesRef.textContent = '';
+    console.log('test')
+}
+
+
+const inputForListener = () => {
+    const amount = document.querySelector('#controls>input').value;
+    createBoxes(amount);
+}
+
+btnRender.addEventListener('click', inputForListener);
+btnDestroy.addEventListener('click', destroyBoxes);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// inputValueRef.addEventListener('input', event => {
+//     amount = event.value
+// })
+// console.log(btnRender);
+
+
+
+
+
+// createBoxes(9);
+// console.log(divBoxesRef);
 
 // const element = document.querySelector('#boxes'); // assuming ul exists
 // const fragment = document.createDocumentFragment();
