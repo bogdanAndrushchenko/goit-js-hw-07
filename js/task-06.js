@@ -28,7 +28,6 @@
 const countsymbolInInput = () => {
   const lengthInput = event.target.value.length
   const necessaryInput = Number(inputRef.dataset.length);
-  console.log(necessaryInput, lengthInput);
 
   lengthInput === necessaryInput ? inputRef.classList = 'valid' : inputRef.classList = 'invalid';
 };
