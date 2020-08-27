@@ -27,12 +27,12 @@ const divBoxesRef = document.querySelector('#boxes');
 const btnRender = document.querySelector('button[data-action="render"]');
 const btnDestroy = document.querySelector('button[data-action="destroy"]');
 
+const startDivSize = 30;
+
 const createDivFn = (size) => {
-    const startDivSize = 30
-    const finishDivSize = startDivSize + size * 10;
     const createDiv = document.createElement('div');
     createDiv.style.cssText =
-        `width: ${finishDivSize}px; height: ${finishDivSize}px;
+        `width: ${size}px; height: ${size}px;
           background-color: rgb(${colorRandom()})`;
     return createDiv
 }
@@ -41,7 +41,8 @@ const createDivFn = (size) => {
 const createBoxes = (amount) => {
     const boxFragment = document.createDocumentFragment();
     for (let i = 0; i < amount; i += 1) {
-        let createDiv = createDivFn(i)
+        const size = startDivSize + i * 10;
+        const createDiv = createDivFn(size)
         boxFragment.append(createDiv);
     }
     divBoxesRef.append(boxFragment);
@@ -54,7 +55,7 @@ const colorRandom = () => {
     const b = Math.floor(Math.random() * 255);
     return `${r},${g},${b}`
 }
-console.log(colorRandom());
+
 
 const destroyBoxes = () => {
     divBoxesRef.textContent = '';

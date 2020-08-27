@@ -27,9 +27,10 @@
  */
 const countsymbolInInput = () => {
   const lengthInput = event.target.value.length
-  const necessaryInput = inputRef.dataset.length
+  const necessaryInput = Number(inputRef.dataset.length);
+  console.log(necessaryInput, lengthInput);
 
-  lengthInput >= necessaryInput ? inputRef.classList = 'valid' : inputRef.classList = 'invalid';
+  lengthInput === necessaryInput ? inputRef.classList = 'valid' : inputRef.classList = 'invalid';
 };
 
 const inputRef = document.querySelector("#validation-input");
